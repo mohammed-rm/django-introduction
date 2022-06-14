@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'polls'
+
 urlpatterns = [
     # if we add something for the first parameter
     # the url will be : localhost:8000/polls/additional_parameter
