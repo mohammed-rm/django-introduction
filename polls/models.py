@@ -13,7 +13,8 @@ class Question(models.Model):
         return f'Question : {self.question_text}, Publication date : {self.publication_date}\n'
 
     def was_published_recently(self) -> bool:
-        return self.publication_date.timestamp() >= (timezone.now() - datetime.timedelta(days=1)).timestamp()
+        now = timezone.now()
+        return (now - datetime.timedelta(days=1)).timestamp() <= self.publication_date.timestamp() <= now.timestamp()
 
 
 class Choice(models.Model):
